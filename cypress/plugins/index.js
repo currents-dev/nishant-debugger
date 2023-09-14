@@ -1,21 +1,27 @@
-const { cloudPlugin } = require('cypress-cloud/plugin');
+const { cloudPlugin } = require("cypress-cloud/plugin");
+const { debuggerPlugin } = require("cypress-debugger");
 
 module.exports = (on, config) => {
   // https://github.com/cypress-io/cypress/issues/5336
-  on('before:browser:launch', (browser = {}, launchOptions) => {
-    if (browser.family === 'chromium' && browser.name !== 'electron') {
+  on("before:browser:launch", (browser = {}, launchOptions) => {
+    if (browser.family === "chromium" && browser.name !== "electron") {
       // pass args for Chrome, Canary, Chromium, Edge browsers
-      launchOptions.args.push('--disable-dev-shm-usage');
+      launchOptions.args.push("--disable-dev-shm-usage");
     }
-    if (browser.name === 'electron') {
+    if (browser.name === "electron") {
       // pass args for Electron browser
     }
-    if (browser.family === 'firefox') {
+    if (browser.family === "firefox") {
       // pass args for Firefox browser
-      launchOptions.args.push('-devtools');
+      launchOptions.args.push("-devtools");
     }
 
     return launchOptions;
+  });
+
+  debuggerPlugin(on, config, {
+    // failedTestsOnly: false,
+    targetDirectory: "./cypress-debugger-output",
   });
 
   //const _ = require('lodash');

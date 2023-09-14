@@ -1,5 +1,4 @@
-const { defineConfig } = require('cypress');
-const { debuggerPlugin } = require('cypress-debugger');
+const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   viewportHeight: 800,
@@ -15,28 +14,24 @@ module.exports = defineConfig({
   taskTimeout: 60000,
   requestTimeout: 60000,
   responseTimeout: 60000,
-  projectId: '<currentsProjectId>',
-  fileServerFolder: '.',
+  projectId: "<currentsProjectId>",
+  fileServerFolder: ".",
   trashAssetsBeforeRuns: false,
   experimentalMemoryManagement: true,
-  fixturesFolder: './cypress/fixtures',
+  fixturesFolder: "./cypress/fixtures",
   modifyObstructiveCode: false,
   video: true,
-  videosFolder: './dist/cypress/apps/e2e/videos',
-  screenshotsFolder: './dist/cypress/apps/e2e/screenshots',
+  videosFolder: "./dist/cypress/apps/e2e/videos",
+  screenshotsFolder: "./dist/cypress/apps/e2e/screenshots",
   chromeWebSecurity: false,
   e2e: {
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
     setupNodeEvents(on, config) {
-      debuggerPlugin(on, config, {
-        failedTestsOnly: false,
-        targetDirectory: './dist/cypress/apps/e2e/reports',
-      });
-      return require('./cypress/plugins/index.js')(on, config);
+      return require("./cypress/plugins/index.js")(on, config);
     },
-    baseUrl: 'https://google.com',
-    specPattern: './cypress/e2e/*.{js,jsx,ts,tsx}',
-    supportFile: './cypress/support/e2e.js',
+    baseUrl: "https://google.com",
+    specPattern: "./cypress/e2e/*.{js,jsx,ts,tsx}",
+    supportFile: "./cypress/support/e2e.js",
   },
 });
