@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "cypress": "12.17.3",
+    "cypress-cloud": "^1.9.3",
+    "cypress-debugger": "1.0.7"
+  }
+}

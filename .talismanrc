@@ -1,0 +1,10 @@
+fileignoreconfig:
+- filename: currents.config.js
+  checksum: 67dd160edbb2f146c53cf137878f43f7120a5c32eb8470badd63488439277922
+- filename: cypress/e2e/googleTest.cy.js
+  checksum: 98183634b9e45584e8e88e9fd5f773057e27c5c7f5b30e6972e69f30159d23f8
+- filename: cypress/plugins/index.js
+  checksum: b86593c18ba69146e17af25504d93b368fbdaf0e1746899f8a722a764cbedf17
+- filename: cypress/support/commands.js
+  checksum: fe05ae48c75b1b0b0cfb43acd03f3cdee3f744069df0296fd86ee4da1081b680
+version: "1.0"
